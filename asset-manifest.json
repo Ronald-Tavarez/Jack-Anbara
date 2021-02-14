@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Sarazen_Realty/static/css/main.9fd71c75.chunk.css",
+    "main.js": "/Sarazen_Realty/static/js/main.5832a5f9.chunk.js",
+    "main.js.map": "/Sarazen_Realty/static/js/main.5832a5f9.chunk.js.map",
+    "runtime-main.js": "/Sarazen_Realty/static/js/runtime-main.2bf7905d.js",
+    "runtime-main.js.map": "/Sarazen_Realty/static/js/runtime-main.2bf7905d.js.map",
+    "static/js/2.48416888.chunk.js": "/Sarazen_Realty/static/js/2.48416888.chunk.js",
+    "static/js/2.48416888.chunk.js.map": "/Sarazen_Realty/static/js/2.48416888.chunk.js.map",
+    "static/js/3.c4d9668b.chunk.js": "/Sarazen_Realty/static/js/3.c4d9668b.chunk.js",
+    "static/js/3.c4d9668b.chunk.js.map": "/Sarazen_Realty/static/js/3.c4d9668b.chunk.js.map",
+    "index.html": "/Sarazen_Realty/index.html",
+    "static/css/main.9fd71c75.chunk.css.map": "/Sarazen_Realty/static/css/main.9fd71c75.chunk.css.map",
+    "static/js/2.48416888.chunk.js.LICENSE.txt": "/Sarazen_Realty/static/js/2.48416888.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2bf7905d.js",
+    "static/js/2.48416888.chunk.js",
+    "static/css/main.9fd71c75.chunk.css",
+    "static/js/main.5832a5f9.chunk.js"
+  ]
+}
