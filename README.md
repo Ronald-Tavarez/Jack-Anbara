@@ -16,3 +16,5 @@ A single page website for Jack Anbara of Sarazen Realty. Uses React & Material U
 ### Deployment
 Github Pages Link: [https://ronald-tavarez.github.io/Sarazen-Realty/](https://ronald-tavarez.github.io/Sarazen-Realty/)
 
+### Authors
+- [Nick Wang](https://github.com/nickwang14), [Ronald Tavarez](https://github.com/Ronald-Tavarez)
