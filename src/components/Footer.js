@@ -1,36 +1,93 @@
 import React from 'react';
-import { Fab, Typography, makeStyles, Container, Link } from '@material-ui/core';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import InstagramIcon from '@material-ui/icons/Instagram';
+import { Typography, makeStyles, Container, Link, Divider, Box } from '@material-ui/core';
+import EmailIcon from '@material-ui/icons/Email';
+import PhoneIcon from '@material-ui/icons/Phone';
+import PhoneAndroidIcon from '@material-ui/icons/PhoneAndroid';
+
 // Jss Styling
 const useStyles = makeStyles((theme) => ({
-    social: {
-        backgroundColor: "white",
-        margin: "0 1rem"
+    footer: {
+        flexShrink: 0,
+        textAlign: "center",
+        backgroundColor: theme.palette.common.white,
+        color: "black",
+        padding: "1rem 1rem 3rem 1rem"
     },
-    footerMain: {
-        padding: theme.spacing(2, 2),
-        marginTop: 'auto',
-        backgroundColor: "grey",
-        flexShrink: 0
+    footerDivider: {
+        backgroundColor: theme.palette.grey[400],
+        height: "2px",
+        margin: "1rem 1rem 3rem 1rem"
+    },
+    footerFlexContainer: {
+        display: "flex",
+        flexWrap: "wrap"
+    },
+    footerBasisContainer: {
+        flexBasis: "50%"
+    },
+    footerImage: {
+        marginBottom: "1rem"
+    },
+    footerLinkContainer: {
+        display: "flex",
+        width: "max-content",
+        alignItems: "center",
+        textAlign: "left",
+        justifyContent: "flex-start",
+        margin: ".5rem 0 0 -.5rem",
+        padding: "0"
+    },
+    footerContactContainer: {
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        padding: "0",
+    },
+    footerInfo: {
+        display: "flex",
+        textAlign: "left",
+        alignItems: "center",
+
+        width: "max-content",
+        margin: "0"
+    },
+    footerType: {
+        margin: ".5rem"
     }
 }));
 
 // TODO: Setup actual links
 
-export default function Footer(properties) {
-    const { social, footerMain } = useStyles();
-    const iconList = ([<FacebookIcon key={"facebook"} />, <TwitterIcon key={"twitter"} />, <LinkedInIcon key={"linkedin"} />, <InstagramIcon key={"instagram"} />]);
+export default function Footer({children}) {
+    const Classes = useStyles();
 
     return (
-        <Container maxWidth={false} className={footerMain}>
-            {iconList.map(icon => (
-                <Fab key={icon.key} classes={{root: social}} size="small">
-                    {icon}
-                </Fab>
-            ))}
+        <Container className={Classes.footer}>
+            <Divider className={Classes.footerDivider} />
+            <Container className={Classes.footerFlexContainer}>
+                <Container className={Classes.footerBasisContainer}>
+                    <img className={Classes.footerImage} src={`${process.env.PUBLIC_URL}/img/cblogo.png`} />
+                </Container>
+                <Container className={Classes.footerBasisContainer}>
+                    <Box className={Classes.footerInfo} component="span">
+                        <EmailIcon  color="primary" />
+                        <Typography variant="caption" className={Classes.footerType}>JackAnbara@example.ca</Typography>
+                    </Box>
+                    <Container className={Classes.footerContactContainer}>
+                        <Box className={Classes.footerInfo}>
+                            <PhoneAndroidIcon  color="primary"/>
+                            <Typography variant="caption" className={Classes.footerType}>Mobile (613)000-0000</Typography>
+                        </Box>
+                        <Box className={Classes.footerInfo}>
+                            <PhoneIcon color="primary" />
+                            <Typography variant="caption" className={Classes.footerType}>Office (613)111-1111 ext 234</Typography>
+                        </Box>
+                    </Container>
+                    <Container className={Classes.footerLinkContainer}>
+                        {children}
+                    </Container>
+                </Container>
+            </Container>
         </Container>
     );
 }

@@ -103,7 +103,7 @@ export default function Navbar(properties) {
     const getMenuButtons = () => {
         return linkData.map(({ text, href }) => {
             return (
-                <Button {...{ key: text, to: href, component: RouterLink, className: menuButton}}>
+                <Button {...{ key: text}}>
                     {text}
                 </Button>
             );
@@ -114,9 +114,9 @@ export default function Navbar(properties) {
     const getDrawerButtons = () => {
         return linkData.map(({ text, href }) => {
             return (
-                <Link {...{ component: RouterLink, to: href, color: "inherit", style: { textDecoration: "none"}, key: text }}>
+                <Button {...{ key: text }}>
                     <MenuItem className={drawer}>{text}</MenuItem>
-                </Link>
+                </Button>
             )
         });
     };

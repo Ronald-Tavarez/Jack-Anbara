@@ -29,7 +29,7 @@ export default function CallToAction(properties) {
     const Classes = useStyles();
     return (
         <div className={Classes.headshotContainer} >
-            <img src="jackanbara_whole.png" style={{width: "100%", maxHeight: "100%"}}/>
+            <img src={`${process.env.PUBLIC_URL}/img/jackanbara_whole.png`} style={{width: "100%", maxHeight: "100%"}}/>
             <Typography className={Classes.title} variant="h1">Jack Anbara</Typography>
             <Typography className={Classes.subTitle} color="primary" variant="h2">Real Estate Investments</Typography>
         </div>
