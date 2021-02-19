@@ -2,28 +2,9 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Slide, useScrollTrigger, MenuItem, Link, AppBar, Toolbar, Button, Typography, makeStyles, IconButton, Drawer } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
+import Data from '../data/constData';
 
-import { Link as RouterLink } from "react-router-dom";
-
-// No api so statically typed data for now
-const linkData = [
-    {
-        text: "Properties",
-        href: "/#properties"
-    },
-    {
-        text: "Newsletter",
-        href: "/#newsletter"
-    },
-    {
-        text: "About Me",
-        href: "/#aboutme"
-    },
-    {
-        text: "Contact",
-        href: "/#contact"
-    }
-]
+const linkData = Data.links;
 
 // jss styling hook
 const useStyles = makeStyles(() => ({
@@ -58,6 +39,8 @@ const useStyles = makeStyles(() => ({
     },
     drawerContainer: {
         padding: "20px 30px",
+        display: "flex",
+        flexDirection: "column"
     },
     drawer: {
         color: "black",
@@ -94,7 +77,7 @@ export default function Navbar(properties) {
     // Logo Side of navbar, Contains Logo image and text "coldwell banker | sarazen realty"
     const Logo = ( 
     <Typography variant="h6" component="h1">
-        <img className={logoIcon} src="cblogo.png" />
+        <img className={logoIcon} src={`${process.env.PUBLIC_URL}/img/cblogo.png`} />
         <span className={logoText} >Coldwell Banker | Sarazen Realty</span>
     </Typography>
     );
@@ -133,8 +116,8 @@ export default function Navbar(properties) {
                 <IconButton {...{onClick: drawerHandler, edge: "start", "aria-label": "menu", "aria-haspopup": "true"}}>
                     <MenuIcon />
                 </IconButton>
-                <Drawer {...{anchor: "right", open: drawerOpen, onClose: drawerHandler}}>
-                    <div className={drawerContainer}>{getDrawerButtons()}</div>
+                <Drawer {...{anchor: "right", open: drawerOpen, onClose: drawerHandler}} >
+                    <div className={drawerContainer} >{getDrawerButtons()}</div>
                 </Drawer>
             </Toolbar>
         );
@@ -177,5 +160,3 @@ export default function Navbar(properties) {
         </nav>
     );
 }
-
-

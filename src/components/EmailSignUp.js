@@ -37,7 +37,7 @@ export default function EmailSignUp(properties) {
         
         <Container size="small">
             <form className={form_email} >
-                <Typography variant="h5">Sign Up to Receive Off Market Investment Opportunities!</Typography>
+                <Typography variant="h5" style={{textTransform: "capitalize"}}>Sign Up To Receive Off Market Investment Opportunities!</Typography>
                 <Container maxWidth="sm" className={flexContainer} style={mobileView ? {gridTemplateColumns: "1fr"} : {gridTemplateColumns: "4fr 1fr"}}>
                     <Box p={1} style={{display: "inline"}}>
                         <TextField style={{width: "100%"}} size="small" variant="outlined" id="form_email_textfield" label="Email"/>

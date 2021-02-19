@@ -4,7 +4,7 @@ import ScrollToTop from './components/ScrollToTop'
 import EmailSignUp from './components/EmailSignUp'
 import CallToAction from './components/CallToAction'
 import { Toolbar, Divider } from '@material-ui/core';
-
+import Footer from './components/Footer'
 
 
 const App = () => {
@@ -16,6 +16,7 @@ const App = () => {
       <CallToAction />
       <EmailSignUp />
       <ScrollToTop />
+      <Footer />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Paper, Container, Typography, Card, makeStyles, CardMedia, CardActionArea, CardActions, CardContent, Box, Button } from '@material-ui/core';
+import Data from '../data/constData';
 
 /**
  * TODO:
@@ -24,23 +25,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const listings = [
-    {
-        imageUrl: 'house_1.png',
-        price: "720,000",
-        link: "house_1"
-    },
-    {
-        imageUrl: 'house_2.png',
-        price: "840,000",
-        link: "house_2"
-    },
-    {
-        imageUrl: 'house_3.png',
-        price: "980,000",
-        link: "house_3"
-    }
-]
+const listings = Data.listings;
 
 export default function ImageGallery(properties) {
     const Classes = useStyles();
@@ -59,7 +44,7 @@ export default function ImageGallery(properties) {
         {listings.map(listing => {
             return (
                 <Card key={listing.link} elevation={3} className={Classes.listingCard}>
-                    <CardMedia component="img" src={`${listing.imageUrl}`} />
+                    <CardMedia component="img" src={`${process.env.PUBLIC_URL}/img/${listing.imageUrl}`} />
                     <CardContent style={{padding: 0}}>
                         <Typography variant="h4">
                             {`$${listing.price}`}

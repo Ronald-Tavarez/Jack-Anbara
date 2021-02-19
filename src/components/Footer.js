@@ -1,8 +1,13 @@
 import React from 'react';
-import { Typography, makeStyles, Container, Link, Divider, Box } from '@material-ui/core';
+import { Typography, makeStyles, Container, Link, Divider, Box, Card } from '@material-ui/core';
 import EmailIcon from '@material-ui/icons/Email';
 import PhoneIcon from '@material-ui/icons/Phone';
 import PhoneAndroidIcon from '@material-ui/icons/PhoneAndroid';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import Data from '../data/constData';
 
 // Jss Styling
 const useStyles = makeStyles((theme) => ({
@@ -11,19 +16,19 @@ const useStyles = makeStyles((theme) => ({
         textAlign: "center",
         backgroundColor: theme.palette.common.white,
         color: "black",
-        padding: "1rem 1rem 3rem 1rem"
-    },
-    footerDivider: {
-        backgroundColor: theme.palette.grey[400],
-        height: "2px",
-        margin: "1rem 1rem 3rem 1rem"
+        padding: "1rem 1rem 3rem 1rem",
+        '& hr': {
+            backgroundColor: theme.palette.grey[400],
+            height: "2px",
+            margin: "1rem 1rem 3rem 1rem"
+        }
     },
     footerFlexContainer: {
         display: "flex",
-        flexWrap: "wrap"
-    },
-    footerBasisContainer: {
-        flexBasis: "50%"
+        flexWrap: "wrap",
+        '& > *': {
+            flexBasis: "50%"
+        }
     },
     footerImage: {
         marginBottom: "1rem"
@@ -43,48 +48,68 @@ const useStyles = makeStyles((theme) => ({
         flexWrap: "wrap",
         padding: "0",
     },
-    footerInfo: {
-        display: "flex",
-        textAlign: "left",
-        alignItems: "center",
-
-        width: "max-content",
-        margin: "0"
-    },
     footerType: {
         margin: ".5rem"
     }
 }));
 
 // TODO: Setup actual links
+const icons = ([
+    <FacebookIcon className="socialIcon" key="facebook" />,
+    <TwitterIcon className="socialIcon" key="twitter" />,
+    <LinkedInIcon className="socialIcon" key="linkedin" />,
+    <InstagramIcon className="socialIcon" key="instagram" />
+]);
 
-export default function Footer({children}) {
+const getSocialIcons = () => {
+    return icons.map(icon => {
+        return (
+          <Card key={icon.key} elevation={0} className="socialLink">
+              {icon}
+          </Card>
+        );
+    });
+};
+
+
+
+export default function Footer() {
     const Classes = useStyles();
+
+    const FooterInfo = properties => {
+        const {children, window} = properties;
+
+        return (
+            <Box style={{display: "flex", textAlign: "left", flexDirection: "row", alignItems: "center", width: "max-content", margin: "0" }}>
+                {children}
+            </Box>
+        );
+    }
 
     return (
         <Container className={Classes.footer}>
-            <Divider className={Classes.footerDivider} />
+            <Divider />
             <Container className={Classes.footerFlexContainer}>
-                <Container className={Classes.footerBasisContainer}>
+                <Container>
                     <img className={Classes.footerImage} src={`${process.env.PUBLIC_URL}/img/cblogo.png`} />
                 </Container>
-                <Container className={Classes.footerBasisContainer}>
-                    <Box className={Classes.footerInfo} component="span">
+                <Container>
+                    <FooterInfo>
                         <EmailIcon  color="primary" />
-                        <Typography variant="caption" className={Classes.footerType}>JackAnbara@example.ca</Typography>
-                    </Box>
+                        <Typography variant="caption" className={Classes.footerType}>{Data.contactDetails.email}</Typography>
+                    </FooterInfo>
                     <Container className={Classes.footerContactContainer}>
-                        <Box className={Classes.footerInfo}>
+                        <FooterInfo>
                             <PhoneAndroidIcon  color="primary"/>
-                            <Typography variant="caption" className={Classes.footerType}>Mobile (613)000-0000</Typography>
-                        </Box>
-                        <Box className={Classes.footerInfo}>
+                            <Typography variant="caption" className={Classes.footerType}>{Data.contactDetails.mobile}</Typography>
+                        </FooterInfo>
+                        <FooterInfo>
                             <PhoneIcon color="primary" />
-                            <Typography variant="caption" className={Classes.footerType}>Office (613)111-1111 ext 234</Typography>
-                        </Box>
+                            <Typography variant="caption" className={Classes.footerType}>{Data.contactDetails.phone}</Typography>
+                        </FooterInfo>
                     </Container>
                     <Container className={Classes.footerLinkContainer}>
-                        {children}
+                        {getSocialIcons()}
                     </Container>
                 </Container>
             </Container>
