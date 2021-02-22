@@ -1,29 +1,29 @@
 const constData = {
     links: [{
         text: "Properties",
-        href: "/#properties"
+        href: "#properties"
     },
     {
         text: "About Me",
-        href: "/#aboutme"
+        href: "#aboutme"
     },
     {
         text: "Contact",
-        href: "/#contact"
+        href: "#contact"
     }],
     listings: [{
         imageUrl: 'house_1.png',
-        price: "720,000",
+        price: "23 Edwards dr",
         link: "house_1"
     },
     {
         imageUrl: 'house_2.png',
-        price: "840,000",
+        price: "97 Bayview crs",
         link: "house_2"
     },
     {
         imageUrl: 'house_3.png',
-        price: "980,000",
+        price: "65 Aldred st",
         link: "house_3"
     }],
     contactDetails: {

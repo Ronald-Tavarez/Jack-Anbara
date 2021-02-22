@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Slide, useScrollTrigger, MenuItem, Link, AppBar, Toolbar, Button, Typography, makeStyles, IconButton, Drawer } from "@material-ui/core";
+import { Slide, Container, useScrollTrigger, MenuItem, Link, AppBar, Toolbar, Button, Typography, makeStyles, IconButton, Drawer } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import Data from '../data/constData';
 
 const linkData = Data.links;
 
 // jss styling hook
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     logoIcon: {
         height: "clamp( 1.2rem, 5vw, 2.4rem)",
         width: "auto",
@@ -26,12 +26,20 @@ const useStyles = makeStyles(() => ({
        paddingRight: "3%"
     },
     menuButton: {
-        color: "black",
+        color: theme.palette.primary.dark,
         fontFamily: "Raleway",
         fontWeight: "500",
         marginLeft: "2.5rem",
         fontSize: "1rem",
-        textTransform: "capitalize"
+        textTransform: "capitalize",
+        width: "max-content",
+        cursor: "pointer",
+        padding: ".6rem",
+        borderRadius: "5px",
+        transition: "background-color 0.1s ease-out",
+        '&:hover': {
+            backgroundColor: theme.palette.grey[400]
+        }
     },
     toolFlex: {
         display: "flex",
@@ -81,14 +89,29 @@ export default function Navbar(properties) {
         <span className={logoText} >Coldwell Banker | Sarazen Realty</span>
     </Typography>
     );
+    
+    const Anchor = properties => {
+        const {children} = properties;
+
+        const ClickHandler = event => {
+            const anchor = (event.target.ownerDocument || document).querySelector(`${properties.href}`);
+            if (anchor) anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        };
+
+        return (
+              <Container onClick={ClickHandler} role="presentation" className={menuButton}>
+                {children}
+              </Container>
+          );
+    };
 
     // Link side of navbar, maps static array of link objects to material ui buttons
     const getMenuButtons = () => {
         return linkData.map(({ text, href }) => {
             return (
-                <Button {...{ key: text}}>
+                <Anchor href={href}>
                     {text}
-                </Button>
+                </Anchor>
             );
         });
     };
@@ -128,7 +151,7 @@ export default function Navbar(properties) {
         return (
             <Toolbar className={toolFlex}>
                 <span>{Logo}</span>
-                <span>{getMenuButtons()}</span>
+                <span style={{display:"flex"}}>{getMenuButtons()}</span>
             </Toolbar>
         );
     };
