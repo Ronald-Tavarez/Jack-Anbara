@@ -14,13 +14,15 @@ const useStyles = makeStyles((theme) => ({
     footer: {
         flexShrink: 0,
         textAlign: "center",
-        backgroundColor: theme.palette.common.white,
+        backgroundColor: theme.palette.grey[100],
         color: "black",
         padding: "1rem 1rem 3rem 1rem",
         '& hr': {
             backgroundColor: theme.palette.grey[400],
-            height: "2px",
-            margin: "1rem 1rem 3rem 1rem"
+            height: "1px",
+            margin: "3rem auto",
+            width: "90%",
+            maxWidth: theme.breakpoints.values.md
         }
     },
     footerFlexContainer: {
@@ -40,7 +42,10 @@ const useStyles = makeStyles((theme) => ({
         textAlign: "left",
         justifyContent: "flex-start",
         margin: ".5rem 0 0 -.5rem",
-        padding: "0"
+        padding: "0",
+        '& > *': {
+            backgroundColor: theme.palette.grey[100]
+        }
     },
     footerContactContainer: {
         display: "flex",
@@ -87,7 +92,7 @@ export default function Footer() {
     }
 
     return (
-        <Container className={Classes.footer}>
+        <Container maxWidth={false} className={Classes.footer}>
             <Divider />
             <Container className={Classes.footerFlexContainer}>
                 <Container>

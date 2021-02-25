@@ -4,20 +4,34 @@ import { Divider, Box, makeStyles, TextField, Container, Typography, Button } fr
 
 // TODO: Form Validation for email, (regex and class state switch?)
 const useStyles = makeStyles((theme) => ({
-    form_email: {
-        padding: "1vw"
+    email_main: {
+        backgroundColor: theme.palette.common.white,
+        padding: "2rem 0rem 2rem 0rem"
     },
-    flexContainer: {
-        display: "grid",
+    email_form: {
+        padding: "1rem 3rem 1rem 3rem",
+    },
+    email_flex_container: {
+        display: "flex",
+        '& > div:first-child': {
+            flexBasis: "80%"
+        },
+        '& > div:last-child': {
+            flexBasis: "20%"
+        }
+    },
+    email_mobile_container: {
+
     }
 }));
 
 export default function EmailSignUp(properties) {
     const [state, setState] = useState({
-        mobileView: false
+        mobileView: false,
+        snackOpen: false
     });
 
-    const { mobileView } = state;
+    const { mobileView, snackOpen } = state;
 
     useEffect(() => {
         // If viewport is less than the value of breakpoint then set mobile view
@@ -31,31 +45,32 @@ export default function EmailSignUp(properties) {
         window.addEventListener('resize', setResponsive);
     }, []);
 
-    const { form_email, flexContainer } = useStyles();
-   
+    const { email_main, email_form, email_flex_container, email_mobile_container } = useStyles();
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        alert("submitted")
+    };
+
     return (
-        
-        <Container size="small">
-            <form className={form_email} >
-                <Typography variant="h5" style={{textTransform: "capitalize"}}>Sign Up To Receive Off Market Investment Opportunities!</Typography>
-                <Container maxWidth="sm" className={flexContainer} style={mobileView ? {gridTemplateColumns: "1fr"} : {gridTemplateColumns: "4fr 1fr"}}>
-                    <Box p={1} style={{display: "inline"}}>
-                        <TextField style={{width: "100%"}} size="small" variant="outlined" id="form_email_textfield" label="Email"/>
+        <Container maxWidth={false} className={email_main} disableGutters={true}>
+            <Typography variant="h5" style={{textTransform: "capitalize"}}>Sign Up To Receive Off Market Investment Opportunities!</Typography>
+            <Container disableGutters={true} maxWidth="md">
+            <form className={email_form} id="email_form" name="email_form" method="POST" data-netlify="true" onSubmit={handleSubmit}>
+            <Box className={mobileView ? email_mobile_container : email_flex_container} >
+                    <Box p={1}>
+                        <TextField style={{width: "100%"}} size="small" variant="outlined" id="form_email_textfield" label="Email" name="email" />
                     </Box>
-                    <Box p={1} style={{display: "inline"}}>
+                    <Box p={1} >
                         <Button style={{width: "100%", height: "2.5rem"}} color="primary" variant="contained" type="submit">
                             <Typography style={{textTransform: "capitalize"}}>
                                 Sign Up
                             </Typography>
                         </Button>
                     </Box>
-                </Container>
-                <Box p={1}>
-                    <Divider style={{margin: "1rem 1rem 2.5rem 1rem", background: "grey", }}/>
                 </Box>
-                <ImageGallery />
             </form>
+            </Container>
         </Container>
-        
     )
 }

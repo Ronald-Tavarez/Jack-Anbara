@@ -1,12 +1,90 @@
-import { Container, Typography } from '@material-ui/core';
-import React from 'react';
+import { Container, Typography, makeStyles, Box } from '@material-ui/core';
+import React, {useState, useEffect} from 'react';
+
+const useStyles = makeStyles( theme => ({
+    about_container: {
+        backgroundColor: theme.palette.primary.main,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        minHeight: "60vh",
+        position: "relative",
+        '& > span': {
+            height: "100%",
+            width: "100%",
+            backgroundColor: theme.palette.primary.dark,
+            position: "absolute",
+            zIndex: "0",
+            clipPath: "polygon(0 0, 100% 0, 100% 100%, 50% 100%)"
+        }
+    },
+    about_main: {
+        padding: "3rem",
+        textAlign: "left",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        color: theme.palette.common.white,
+        zIndex: "1",
+        '& > div:first-child': {
+            flexBasis: "30%",
+            border: `1px solid ${theme.palette.grey[200]}`,
+            backgroundColor: theme.palette.grey[100],
+            padding: "2rem 1rem"
+        },
+        '& > div:last-child': {
+            flexBasis: "60%"
+        }
+    }
+}));
 
 export default function AboutMe(properties) {
+
+    const [state, setState] = useState({
+        mobileView: false
+    });
+
+    const { mobileView } = state;
+
+    useEffect(() => {
+        // If viewport is less than the value of breakpoint then set mobile view
+        const breakpoint = 800;
+        const setResponsive = () => {
+            //console.log(window.innerWidth);
+            return window.innerWidth < breakpoint ? setState(previousState => ({...previousState, mobileView: true})) : setState(previousState => ({...previousState, mobileView: false}));
+        };
+        setResponsive();
+        // Call setResponse everytime the window is resized and once on startup
+        window.addEventListener('resize', setResponsive);
+    }, []);
+
+    const {about_container, about_main} = useStyles();
+
     return (
-        <Container>
-            <Typography>
-                Jack was born and raised in the Ottawa/Gatineau and has been in the real estate business since he was 22 years old. His positivity  and transparency are all part of the professionalism and value he offers. Early in his career the interest was geared towards investment properties. He won the Rookie of the year award at one of Ottawa's largest offices and went along to becoming an award winning agent year after year. He specializes in helping clients efficiently build real estate portfolios or expanding their current portfolios here in the nation's capital.
-            </Typography>
+        <Container id="about_me" disableGutters={true} maxWidth={false} className={about_container}>
+            <Box component="span" />
+            <Container style={mobileView ? {flexDirection: "column"} : {flexDirection: "row"}} maxWidth="md" disableGutters={true} className={about_main}>
+                <Box style={{width: mobileView ? "40%" : "100%", margin: mobileView ? "1rem auto" : "0"} }>
+                    {/* Another photo of jack here, preferably better quality */}
+                    <img style={{width: "100%", height: "auto"}} src={`${process.env.PUBLIC_URL}/img/about_me.png`} alt="jack anbara" title="jack anbara"/>
+                </Box>
+                <Box>
+                    <Box p={1}>
+                        <Typography style={{textAlign: mobileView ? "center" : "left"}} variant="h4">
+                            Jack Anbara
+                        </Typography>
+                    </Box>
+                    <Box p={1}>
+                        <Typography variant="body1">
+                            Jack was born and raised in the Ottawa/Gatineau and has been in the real estate business since he was 22 years old.
+                            His positivity and transparency are all part of the professionalism and value he offers. 
+                            Early in his career the interest was geared towards investment properties. 
+                            He won the Rookie of the year award at one of Ottawa's largest offices and went along to becoming an award winning agent year after year.
+                            He specializes in helping clients efficiently build real estate portfolios or expanding their current portfolios here in the nation's capital.
+                        </Typography>
+                    </Box>
+                </Box>
+            </Container>
         </Container>
     );
 }

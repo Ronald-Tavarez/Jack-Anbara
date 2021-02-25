@@ -10,7 +10,7 @@ const useStyles = makeStyles( theme => ({
         right: theme.spacing(2)
     },
     scroll: {
-        backgroundColor: "#225ba7",
+        backgroundColor: theme.palette.primary.dark,
         color: "white",
         '&:hover': {
             color: 'black'
@@ -34,8 +34,7 @@ export default function ScrollToTop(properties) {
         const ClickHandler = event => {
             const anchor = (event.target.ownerDocument || document).querySelector('#top-anchor');
             
-            if (anchor)
-                anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if (anchor) anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
         };
 
         return (

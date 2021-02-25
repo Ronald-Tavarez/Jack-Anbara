@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
         marginRight: ".4em"
     },
     logoText: {
-        color: "#225ba7",
+        color: theme.palette.primary.dark,
         fontFamily: "Montserrat",
         fontWeight: "900",
         fontSize: "clamp( 0.66rem, 3vw, 1.2rem)"
@@ -109,7 +109,7 @@ export default function Navbar(properties) {
     const getMenuButtons = () => {
         return linkData.map(({ text, href }) => {
             return (
-                <Anchor href={href}>
+                <Anchor key={text} href={href}>
                     {text}
                 </Anchor>
             );
