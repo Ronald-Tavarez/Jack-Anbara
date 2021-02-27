@@ -123,11 +123,15 @@ export default function Navbar(properties) {
     // essentially the mobile drawer version of getMenuButtons
     const getDrawerButtons = () => {
         return linkData.map(({ text, href }) => {
+            const handleClick = event => {
+                const anchor = (event.target.ownerDocument || document).querySelector(href);    
+                if (anchor) anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
             return (
-                <Button {...{ key: text }}>
-                    <MenuItem className={drawer}>{text}</MenuItem>
-                </Button>
-            )
+                <Link key={text} className={menuButton} onClick={handleClick} >
+                    {text}
+                </Link>
+            );
         });
     };
 

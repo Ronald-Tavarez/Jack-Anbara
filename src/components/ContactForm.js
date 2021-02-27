@@ -64,13 +64,14 @@ const ContactForm = (properties) => {
         <Container disableGutters={true} className={cf_container} maxWidth={false}>
             <Box component="span" />
             <Container disableGutters={true} maxWidth="md" className={cf_main}>
-                <form id="contact_form" name="contact_form" method="POST" data-netlify="true">
+                <form id="contact_form" name="contact_form" method="POST" data-netlify="true" onSubmit="submit">
+                    <input type="hidden" name="contact_input" value="contact_form" />
                     <Box className={cf_flex_container} style={mobileView ? {flexDirection: "column"} : {flexDirection: "row"}}>
                         <Box p={1}>
-                            <TextField className={cf_textfield} size="small" name="name" id="name" label="Full Name" variant="outlined" />
+                            <TextField className={cf_textfield} size="small" type="text" name="name" id="name" label="Full Name" variant="outlined" />
                         </Box>
                         <Box p={1}>
-                            <TextField className={cf_textfield} size="small" name="phone" id="phone" label="Phone" variant="outlined" />
+                            <TextField className={cf_textfield} size="small" type="text" name="phone" id="phone" label="Phone" variant="outlined" />
                         </Box>
                     </Box>
                     <Box p={1}>
