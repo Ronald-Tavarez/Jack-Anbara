@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Paper, Container, Typography, Card, makeStyles, CardMedia, CardActionArea, CardActions, CardContent, Box, Button } from '@material-ui/core';
 import Data from '../data/constData';
 
@@ -15,13 +15,56 @@ const useStyles = makeStyles((theme) => ({
     cardContainer: {
         display: "flex",
         flexDirection: "row",
-        justifyContent: "space-between",
+        justifyContent: "start",
         flexWrap: "wrap"
     },
+    ig_card_container_mobile: {
+        display: "flex",
+        flexDirection: "column"
+    },
     listingCard: {
-        width: "clamp(240px, 50%, 280px)",
-        height: "auto",
-        margin: ".5rem auto"
+        position: "relative",
+        boxSizing: "border-box",
+        width: "220px",
+        height: "200px",
+        border: `none`,
+        boxShadow: `0px 5px 6px ${theme.palette.grey[400]}`,
+        margin: ".5rem",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        '& > div': {
+            position: "absolute",
+            top: "85%",
+            height: "15%",
+            width: "100%",
+            backgroundColor: theme.palette.common.white,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center"
+        }
+    },
+    ig_listing_card_mobile: {
+        position: "relative",
+        boxSizing: "border-box",
+        width: "100%",
+        paddingTop: "100%",
+        backgroundSize: "cover",
+        '& > div': {
+            position: "absolute",
+            top: "85%",
+            height: "15%",
+            width: "100%",
+            backgroundColor: theme.palette.primary.main,
+            color: "white",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            '& > *': {
+                fontSize: "2rem"
+            }
+        }
     }
 }));
 
@@ -31,26 +74,40 @@ export default function ImageGallery(properties) {
     const Classes = useStyles();
 
     const [state, setState] = useState({
-        
+        mobileView: false
     });
+
+    const { mobileView } = state;
+
+    useEffect(() => {
+        // If viewport is less than the value of breakpoint then set mobile view
+        const breakpoint = 1000;
+        const setResponsive = () => {
+            //console.log(window.innerWidth);
+            return window.innerWidth < breakpoint ? setState(previousState => ({...previousState, mobileView: true})) : setState(previousState => ({...previousState, mobileView: false}));
+        };
+        setResponsive();
+        // Call setResponse everytime the window is resized and once on startup
+        window.addEventListener('resize', setResponsive);
+    }, []);
+
     return (
-        <Container component="span" id="properties">
+        <Container maxWidth={false} disableGutters={true} component="span" id="properties">
             <Box p={1}>
                 <Typography variant="h4">
                     Sold Properties
                 </Typography>
             </Box>
-            <Container className={Classes.cardContainer}>
+            <Container maxWidth="md" disableGutters={true} className={mobileView ? Classes.ig_card_container_mobile : Classes.cardContainer}>
             {listings.map(listing => {
                 return (
-                    <Card key={listing.link} elevation={3} className={Classes.listingCard}>
-                        <CardMedia component="img" src={`${process.env.PUBLIC_URL}/img/${listing.imageUrl}`} />
-                        <CardContent style={{padding: 0}}>
-                            <Typography variant="h4">
-                                {`$${listing.price}`}
+                    <Box key={listing.address} className={mobileView ? Classes.ig_listing_card_mobile : Classes.listingCard} style={{backgroundImage: `url("${process.env.PUBLIC_URL}/img/houses/${listing.address}.${listing.ext}")`}} >
+                        <Box>
+                            <Typography variant="body1">
+                                {listing.address}
                             </Typography>
-                        </CardContent>
-                    </Card>
+                        </Box>
+                    </Box>
                 );
             })}
             </Container>

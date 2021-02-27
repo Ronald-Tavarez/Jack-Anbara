@@ -108,10 +108,14 @@ export default function Navbar(properties) {
     // Link side of navbar, maps static array of link objects to material ui buttons
     const getMenuButtons = () => {
         return linkData.map(({ text, href }) => {
+            const handleClick = event => {
+                const anchor = (event.target.ownerDocument || document).querySelector(href);    
+                if (anchor) anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
             return (
-                <Anchor key={text} href={href}>
+                <Link key={text} className={menuButton} onClick={handleClick} >
                     {text}
-                </Anchor>
+                </Link>
             );
         });
     };

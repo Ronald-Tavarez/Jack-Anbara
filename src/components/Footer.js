@@ -61,17 +61,34 @@ const useStyles = makeStyles((theme) => ({
 // TODO: Setup actual links
 const icons = ([
     <FacebookIcon className="socialIcon" key="facebook" />,
-    <TwitterIcon className="socialIcon" key="twitter" />,
     <LinkedInIcon className="socialIcon" key="linkedin" />,
-    <InstagramIcon className="socialIcon" key="instagram" />
+    <InstagramIcon className="socialIcon" key="instagram" />,
+    <img src={`${process.env.PUBLIC_URL}/img/cb_icon.png`} style={{height: "60%", width: "60%", borderRadius: "5px", clipPath: "polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%)"}} key="coldwell" />
 ]);
 
 const getSocialIcons = () => {
     return icons.map(icon => {
+        let current_href = undefined;
+        switch(icon.key) {
+            case "facebook":
+                current_href = Data.socialLinks.facebook;
+                break;
+            case "linkedin":
+                current_href = Data.socialLinks.linkedin;
+                break;
+            case "instagram":
+                current_href = Data.socialLinks.instagram;
+                break;
+            case "coldwell":
+                current_href = Data.socialLinks.coldwell;
+                break;
+        }
         return (
-          <Card key={icon.key} elevation={0} className="socialLink">
-              {icon}
-          </Card>
+            <Card key={icon.key} elevation={0} className="socialLink">
+                <Link href={current_href} style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textDecoration: "none"}} target="_blank">
+                    {icon}
+                </Link>
+            </Card>
         );
     });
 };

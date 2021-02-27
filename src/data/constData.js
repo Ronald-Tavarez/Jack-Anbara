@@ -5,31 +5,29 @@ const constData = {
     },
     {
         text: "About Me",
-        href: "#aboutme"
+        href: "#about_me"
     },
     {
         text: "Contact",
-        href: "#contact"
+        href: "#contact_form"
     }],
-    listings: [{
-        imageUrl: 'house_1.png',
-        price: "23 Edwards dr",
-        link: "house_1"
-    },
-    {
-        imageUrl: 'house_2.png',
-        price: "97 Bayview crs",
-        link: "house_2"
-    },
-    {
-        imageUrl: 'house_3.png',
-        price: "65 Aldred st",
-        link: "house_3"
-    }],
+    listings: [ 
+        { address: "235 Wilbrod St", ext: "png"},
+        { address: "292 St Andrew St", ext: "jpg"},
+        { address: "285 Clarence St", ext: "jpg"},
+        { address: "312 Somerset St", ext: "jpg"},
+    ],
     contactDetails: {
-        email: "JackAnbara@example.ca",
-        mobile: "Mobile (613)000-0000",
-        phone: "Office (613)111-1111 ext 234"
+        email: "jackanbaraottawa@gmail.com",
+        mobile: "Mobile: 613-371-4840",
+        phone: "Office: 613-596-4133",
+        fax: "Fax: 613-596-5905"
+    },
+    socialLinks: {
+        facebook: "https://www.facebook.com/Anbara-Real-Estate-Group-550987505041596/",
+        linkedin: "https://www.linkedin.com/in/jack-anbara-a621545b/?originalSubdomain=ca",
+        instagram: "https://www.instagram.com/jackanbara_/",
+        coldwell: "https://www.coldwellbanker.ca/agent/jack-anbara-k2b8g7/"
     }
 };
 
