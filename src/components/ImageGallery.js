@@ -92,7 +92,7 @@ export default function ImageGallery(properties) {
     }, []);
 
     return (
-        <Container maxWidth={false} disableGutters={true} component="span" id="properties">
+        <Container maxWidth={false} disableGutters={true} component="span" id="properties" style={{paddingTop: "1.5rem", paddingBottom: "1.5rem"}}>
             <Box p={1}>
                 <Typography variant="h4">
                     Sold Properties

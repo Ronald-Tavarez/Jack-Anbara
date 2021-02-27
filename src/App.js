@@ -20,12 +20,12 @@ const App = () => {
         <Introduction />
         <EmailSignUp />
       </Container>
-      <Container id="info_section" disableGutters={true} maxWidth={false} style={{minHeight: "100vh"}}>
-        <OfficeMap />
+
         <AboutMe />
-      </Container>
+
       <ImageGallery />
       <ContactForm />
+      <OfficeMap />
       <ScrollToTop />
       <Footer />
     </div>
