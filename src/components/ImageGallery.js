@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
         width: "220px",
         height: "200px",
         border: `none`,
-        boxShadow: `0px 5px 6px ${theme.palette.grey[400]}`,
         margin: ".5rem",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
@@ -37,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
             top: "85%",
             height: "15%",
             width: "100%",
-            backgroundColor: theme.palette.common.white,
+            backgroundColor: theme.palette.primary.main,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -92,9 +91,9 @@ export default function ImageGallery(properties) {
     }, []);
 
     return (
-        <Container maxWidth={false} disableGutters={true} component="span" id="properties" style={{paddingTop: "1.5rem", paddingBottom: "1.5rem"}}>
+        <Container maxWidth={false} disableGutters={true} component="span" id="properties" style={{paddingTop: "1.5rem", paddingBottom: "1.5rem", backgroundColor: "black"}}>
             <Box p={1}>
-                <Typography variant="h4">
+                <Typography color="primary" variant="h4">
                     Sold Properties
                 </Typography>
             </Box>

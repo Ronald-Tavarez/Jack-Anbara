@@ -15,19 +15,19 @@ const useStyles = makeStyles((theme) => ({
         marginRight: ".4em"
     },
     logoText: {
-        color: theme.palette.primary.dark,
-        fontFamily: "Montserrat",
+        color: theme.palette.primary.main,
+        fontFamily: theme.typography.fontFamily,
         fontWeight: "900",
         fontSize: "clamp( 0.66rem, 3vw, 1.2rem)"
     },
     nav: {
-       backgroundColor: "#FFFFFF",
+       backgroundColor: theme.palette.common.black,
        paddingLeft: "3%",
        paddingRight: "3%"
     },
     menuButton: {
-        color: theme.palette.primary.dark,
-        fontFamily: "Raleway",
+        color: theme.palette.primary.main,
+        fontFamily: theme.typography.fontFamily,
         fontWeight: "500",
         marginLeft: "2.5rem",
         fontSize: "1rem",
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: "5px",
         transition: "background-color 0.1s ease-out",
         '&:hover': {
-            backgroundColor: theme.palette.grey[400]
+            backgroundColor: theme.palette.grey[900]
         }
     },
     toolFlex: {
@@ -48,14 +48,13 @@ const useStyles = makeStyles((theme) => ({
     drawerContainer: {
         padding: "20px 30px",
         display: "flex",
-        flexDirection: "column"
+        flexDirection: "column",
     },
     drawer: {
-        color: "black",
-        fontFamily: "Raleway",
-        fontWeight: "500",
-        fontSize: "1rem",
-        textTransform: "capitalize"
+        backgroundColor: theme.palette.common.black
+    },
+    menuIcon: {
+        color: theme.palette.primary.main
     }
  }));
 
@@ -80,7 +79,7 @@ export default function Navbar(properties) {
     }, []);
 
     // destructure each property to create separate classes
-    const { nav, logoText, logoIcon, menuButton, toolFlex, drawerContainer, drawer } = useStyles();
+    const { nav, logoText, logoIcon, menuButton, toolFlex, drawerContainer, drawer, menuIcon } = useStyles();
 
     // Logo Side of navbar, Contains Logo image and text "coldwell banker | sarazen realty"
     const Logo = ( 
@@ -145,9 +144,9 @@ export default function Navbar(properties) {
             <Toolbar className={toolFlex}>
                 <span>{Logo}</span>
                 <IconButton {...{onClick: drawerHandler, edge: "start", "aria-label": "menu", "aria-haspopup": "true"}}>
-                    <MenuIcon />
+                    <MenuIcon className={menuIcon}/>
                 </IconButton>
-                <Drawer {...{anchor: "right", open: drawerOpen, onClose: drawerHandler}} >
+                <Drawer classes={{paper: drawer}} {...{anchor: "right", open: drawerOpen, onClose: drawerHandler}} >
                     <div className={drawerContainer} >{getDrawerButtons()}</div>
                 </Drawer>
             </Toolbar>

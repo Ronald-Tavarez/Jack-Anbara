@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
         gridTemplateRows: "repeat(4, 1fr)",
         padding: "0",
         height: "40vw",
-        backgroundColor: theme.palette.primary.dark,
+        backgroundColor: theme.palette.primary.main,
         zIndex: "0",
         '& > div': {
             position: "relative",
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
             gridRow: "4 / 5",
             '&:hover': {
                 '& > div': {
-                    backgroundColor: theme.palette.grey[400],
+                    backgroundColor: theme.palette.grey[900],
                 },
                 '& > img': {
                     transform: "translateY(-10%) translateX(-10%) scaleX(-1.2) scaleY(1.2)"
@@ -55,7 +55,7 @@ const useStyles = makeStyles(theme => ({
                 height: "400%",
                 paddingLeft: "200%",
                 transition: "background-color 0.2s ease-out",
-                backgroundColor: theme.palette.grey[100],
+                backgroundColor: theme.palette.common.black,
                 zIndex: "1",
                 clipPath: "polygon(100% 0, 0% 100%, 100% 100%)"
             }
@@ -130,12 +130,12 @@ const useStyles = makeStyles(theme => ({
         top: "35%",
         left: "10%",
         textAlign: "right",
-        color: theme.palette.common.white,
+        color: theme.palette.primary.main,
         backdropFilter: "brightness(99.5%) blur(.5px)"
     },
     i_subTitle_mobile: {
         position: "absolute",
-        color: theme.palette.common.white,
+        color: theme.palette.primary.main,
         top: "20%",
         left: "6%",
         zIndex: "3",

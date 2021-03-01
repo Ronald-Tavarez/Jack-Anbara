@@ -5,23 +5,38 @@ import { Divider, Box, makeStyles, TextField, Container, Typography, Button } fr
 // TODO: Form Validation for email, (regex and class state switch?)
 const useStyles = makeStyles((theme) => ({
     email_main: {
-        backgroundColor: theme.palette.common.white,
-        padding: "2rem 0rem 2rem 0rem"
+        backgroundColor: theme.palette.common.black,
+        padding: "2rem 0rem 2rem 0rem",
+        color: theme.palette.common.white
     },
     email_form: {
         padding: "1rem 3rem 1rem 3rem",
+        color: theme.palette.common.white
     },
     email_flex_container: {
         display: "flex",
+        color: theme.palette.common.white,
         '& > div:first-child': {
-            flexBasis: "80%"
+            flexBasis: "80%",
+            color: theme.palette.common.white
         },
         '& > div:last-child': {
-            flexBasis: "20%"
+            flexBasis: "20%",
+            color: theme.palette.common.white
         }
     },
     email_mobile_container: {
-
+        color: theme.palette.common.white
+    },
+    email_input: {
+        backgroundColor: theme.palette.common.white
+    },
+    email_css_label: {
+        color: theme.palette.primary.main,
+        
+    },
+    email_css_focused: {
+        borderColor: `${theme.palette.primary.main} !important`
     }
 }));
 
@@ -45,7 +60,7 @@ export default function EmailSignUp(properties) {
         window.addEventListener('resize', setResponsive);
     }, []);
 
-    const { email_main, email_form, email_flex_container, email_mobile_container } = useStyles();
+    const { email_main, email_form, email_flex_container, email_mobile_container, email_input, email_css_label, email_css_focused } = useStyles();
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -59,7 +74,7 @@ export default function EmailSignUp(properties) {
             <form className={email_form} id="email_form" name="email_form" method="POST" data-netlify="true" onSubmit="submit">
                 <Box className={mobileView ? email_mobile_container : email_flex_container} >
                     <Box p={1}>
-                        <TextField style={{width: "100%"}} size="small" variant="outlined" type="email" id="form_email_textfield" label="Email" name="email" />
+                        <TextField InputLabelProps={{classes: { root: email_css_label, focused: email_css_focused}}} InputProps={{className: email_input}} style={{width: "100%"}} size="small" variant="outlined" type="email" id="form_email_textfield" label="Email" name="email" />
                     </Box>
                     <Box p={1} >
                         <Button style={{width: "100%", height: "2.5rem"}} color="primary" variant="contained" type="submit">

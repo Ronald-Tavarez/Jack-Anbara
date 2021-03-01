@@ -12,7 +12,7 @@ const useStyles = makeStyles( theme => ({
         '& > span': {
             height: "100%",
             width: "100%",
-            backgroundColor: theme.palette.primary.dark,
+            backgroundColor: theme.palette.common.black,
             position: "absolute",
             zIndex: "0",
             clipPath: "polygon(0 0, 100% 0, 100% 100%, 50% 100%)"

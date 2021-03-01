@@ -3,7 +3,7 @@ import { Container, makeStyles, Typography } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
     map_container: {
-        backgroundColor: theme.palette.grey[100],
+        backgroundColor: theme.palette.common.black,
         paddingTop: "1rem"
     },
     map_main: {
@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     },
     map_iframe: {
         boxSizing: "border-box",
-        border: `1px solid ${theme.palette.grey[600]}`
+        border: `1px solid ${theme.palette.primary.main}`
     }
 }))
 

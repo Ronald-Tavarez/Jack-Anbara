@@ -14,11 +14,11 @@ const useStyles = makeStyles((theme) => ({
     footer: {
         flexShrink: 0,
         textAlign: "center",
-        backgroundColor: theme.palette.grey[100],
+        backgroundColor: theme.palette.common.black,
         color: "black",
         padding: "1rem 1rem 3rem 1rem",
         '& hr': {
-            backgroundColor: theme.palette.grey[400],
+            backgroundColor: theme.palette.primary.main,
             height: "1px",
             margin: "3rem auto",
             width: "90%",
@@ -44,7 +44,10 @@ const useStyles = makeStyles((theme) => ({
         margin: ".5rem 0 0 -.5rem",
         padding: "0",
         '& > *': {
-            backgroundColor: theme.palette.grey[100]
+            backgroundColor: theme.palette.common.black,
+            '&:hover': {
+                backgroundColor: theme.palette.grey[900],
+            }
         }
     },
     footerContactContainer: {
@@ -102,7 +105,7 @@ export default function Footer() {
         const {children, window} = properties;
 
         return (
-            <Box style={{display: "flex", textAlign: "left", flexDirection: "row", alignItems: "center", width: "max-content", margin: "0" }}>
+            <Box style={{display: "flex", textAlign: "left", flexDirection: "row", alignItems: "center", width: "max-content", margin: "0", color: "white" }}>
                 {children}
             </Box>
         );
