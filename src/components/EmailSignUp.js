@@ -66,12 +66,13 @@ export default function EmailSignUp(properties) {
         event.preventDefault()
         alert("submitted")
     };
-
+    
     return (
         <Container maxWidth={false} className={email_main} disableGutters={true}>
             <Typography variant="h5" style={{textTransform: "capitalize"}}>Sign Up To Receive Off Market Investment Opportunities!</Typography>
             <Container disableGutters={true} maxWidth="md">
             <form className={email_form} id="email_form" name="email_form" method="POST" data-netlify="true" onSubmit="submit">
+                <input type="hidden" name="form-name" value="email_form" />
                 <Box className={mobileView ? email_mobile_container : email_flex_container} >
                     <Box p={1}>
                         <TextField InputLabelProps={{classes: { root: email_css_label, focused: email_css_focused}}} InputProps={{className: email_input}} style={{width: "100%"}} size="small" variant="outlined" type="email" id="form_email_textfield" label="Email" name="email" />
