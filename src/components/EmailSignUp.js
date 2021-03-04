@@ -79,7 +79,7 @@ export default function EmailSignUp(properties) {
                     </Box>
                     <Box p={1} >
                         <Button style={{width: "100%", height: "2.5rem"}} color="primary" variant="contained" type="submit">
-                            <Typography style={{textTransform: "capitalize"}}>
+                            <Typography style={{textTransform: "capitalize", color: "white"}}>
                                 Sign Up
                             </Typography>
                         </Button>

@@ -40,7 +40,8 @@ const useStyles = makeStyles((theme) => ({
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent: "center"
+            justifyContent: "center",
+            color: "white"
         }
     },
     ig_listing_card_mobile: {
@@ -93,7 +94,7 @@ export default function ImageGallery(properties) {
     return (
         <Container maxWidth={false} disableGutters={true} component="span" id="properties" style={{paddingTop: "1.5rem", paddingBottom: "1.5rem", backgroundColor: "black"}}>
             <Box p={1}>
-                <Typography color="primary" variant="h4">
+                <Typography style={{color: "white"}} variant="h4">
                     Sold Properties
                 </Typography>
             </Box>
@@ -113,7 +114,7 @@ export default function ImageGallery(properties) {
             <Box p={3}>
                 <Button variant="contained" color="primary">
                     <Box p={1}>
-                        <Typography variant="h5">
+                        <Typography style={{color: "white", textTransform: "capitalize"}} variant="h5">
                             Search Listed
                         </Typography>
                     </Box>

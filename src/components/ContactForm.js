@@ -82,7 +82,7 @@ const ContactForm = (properties) => {
                     </Box>
                     <Box p={1} style={{display: "flex", flexDirection: "row-reverse"}}>
                         <Button style={{width: mobileView ? "100%" : "20%", height: "2.5rem"}} color="primary" variant="contained" type="submit">
-                            <Typography style={{textTransform: "capitalize"}}>
+                            <Typography style={{textTransform: "capitalize", color: "white"}}>
                                 Contact
                             </Typography>
                         </Button>
