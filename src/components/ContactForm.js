@@ -75,7 +75,7 @@ const ContactForm = (properties) => {
                         </Box>
                     </Box>
                     <Box p={1}>
-                        <TextField className={cf_textfield} size="small" name="email" id="email" label="Email" variant="outlined" />
+                        <TextField className={cf_textfield} size="small" name="email" id="email" label="Email" variant="outlined" required/>
                     </Box>
                     <Box p={1}>
                         <TextField className={cf_textfield} size="small" name="message" id="message" label="Message" variant="outlined" multiline rows={10} />

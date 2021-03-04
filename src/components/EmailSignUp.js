@@ -75,7 +75,7 @@ export default function EmailSignUp(properties) {
                 <input type="hidden" name="form-name" value="email_form" />
                 <Box className={mobileView ? email_mobile_container : email_flex_container} >
                     <Box p={1}>
-                        <TextField InputLabelProps={{classes: { root: email_css_label, focused: email_css_focused}}} InputProps={{className: email_input}} style={{width: "100%"}} size="small" variant="outlined" type="email" id="form_email_textfield" label="Email" name="email" />
+                        <TextField required InputLabelProps={{classes: { root: email_css_label, focused: email_css_focused}}} InputProps={{className: email_input}} style={{width: "100%"}} size="small" variant="outlined" type="email" id="form_email_textfield" label="Email" name="email" />
                     </Box>
                     <Box p={1} >
                         <Button style={{width: "100%", height: "2.5rem"}} color="primary" variant="contained" type="submit">
