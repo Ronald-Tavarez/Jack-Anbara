@@ -64,9 +64,9 @@ export default function AboutMe(properties) {
         <Container id="about_me" disableGutters={true} maxWidth={false} className={about_container}>
             <Box component="span" />
             <Container style={mobileView ? {flexDirection: "column"} : {flexDirection: "row"}} maxWidth="md" disableGutters={true} className={about_main}>
-                <Box style={{width: mobileView ? "40%" : "100%", margin: mobileView ? "1rem auto" : "0"} }>
+                <Box style={{width: mobileView ? "40%" : "100%", margin: mobileView ? "1rem auto" : "0", backgroundImage: `url(${process.env.PUBLIC_URL}/img/jackanbara_cutout.png)`, backgroundSize: "cover", minHeight: "200px"} }>
                     {/* Another photo of jack here, preferably better quality */}
-                    <img style={{width: "100%", height: "auto"}} src={`${process.env.PUBLIC_URL}/img/about_me.png`} alt="jack anbara" title="jack anbara"/>
+                    
                 </Box>
                 <Box>
                     <Box p={1}>
