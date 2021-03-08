@@ -15,18 +15,18 @@ const useStyles = makeStyles((theme) => ({
         marginRight: ".4em"
     },
     logoText: {
-        color: theme.palette.primary.main,
+        color: theme.palette.common.black,
         fontFamily: theme.typography.fontFamily,
         fontWeight: "900",
         fontSize: "clamp( 0.66rem, 3vw, 1.2rem)"
     },
     nav: {
-       backgroundColor: theme.palette.common.black,
+       backgroundColor: theme.palette.common.white,
        paddingLeft: "3%",
        paddingRight: "3%"
     },
     menuButton: {
-        color: theme.palette.primary.main,
+        color: theme.palette.common.black,
         fontFamily: theme.typography.fontFamily,
         fontWeight: "500",
         marginLeft: "2.5rem",
@@ -38,7 +38,8 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: "5px",
         transition: "background-color 0.1s ease-out",
         '&:hover': {
-            backgroundColor: theme.palette.grey[900]
+            backgroundColor: theme.palette.grey[100],
+            textDecoration: "none"
         }
     },
     toolFlex: {
@@ -51,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "column",
     },
     drawer: {
-        backgroundColor: theme.palette.common.black
+        backgroundColor: theme.palette.common.white
     },
     menuIcon: {
         color: theme.palette.primary.main

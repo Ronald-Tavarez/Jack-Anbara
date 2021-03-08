@@ -3,8 +3,8 @@ import { Container, makeStyles, Typography } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
     map_container: {
-        backgroundColor: theme.palette.common.black,
-        paddingTop: "1rem"
+        backgroundColor: theme.palette.common.white,
+        paddingTop: "1rem",
     },
     map_main: {
         padding: "0rem",

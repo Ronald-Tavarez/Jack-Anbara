@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
             top: "85%",
             height: "15%",
             width: "100%",
-            backgroundColor: theme.palette.primary.main,
+            backgroundColor: theme.palette.common.black,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
             top: "85%",
             height: "15%",
             width: "100%",
-            backgroundColor: theme.palette.primary.main,
+            backgroundColor: theme.palette.common.black,
             color: "white",
             display: "flex",
             flexDirection: "column",
@@ -92,9 +92,9 @@ export default function ImageGallery(properties) {
     }, []);
 
     return (
-        <Container maxWidth={false} disableGutters={true} component="span" id="properties" style={{paddingTop: "1.5rem", paddingBottom: "1.5rem", backgroundColor: "black"}}>
+        <Container maxWidth={false} disableGutters={true} component="span" id="properties" style={{paddingTop: "1.5rem", paddingBottom: "1.5rem", backgroundColor: "white"}}>
             <Box p={1}>
-                <Typography style={{color: "white"}} variant="h4">
+                <Typography color="primary" style={{filter: "drop-shadow(0 2px 2px rgba(0, 0, 0, .1))"}} variant="h4">
                     Sold Properties
                 </Typography>
             </Box>

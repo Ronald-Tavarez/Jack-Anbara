@@ -4,12 +4,12 @@ import React, {useState, useEffect} from 'react'
 const useStyles = makeStyles( theme => ({
     cf_container: {
         position: "relative",
-        backgroundColor: theme.palette.common.black,
+        backgroundColor: theme.palette.common.white,
         '& > span': {
             position: "absolute",
             height: "100%",
             width: "50%",
-            backgroundColor: theme.palette.primary.main,
+            backgroundColor: theme.palette.grey[200],
             right: "0%",
             top: "0%",
             clipPath: "polygon(100% 100%, 0 0, 100% 0)",

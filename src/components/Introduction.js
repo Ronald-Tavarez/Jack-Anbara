@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
         gridTemplateRows: "repeat(4, 1fr)",
         padding: "0",
         height: "40vw",
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: theme.palette.common.black,
         zIndex: "0",
         '& > div': {
             position: "relative",
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
             gridRow: "4 / 5",
             '&:hover': {
                 '& > div': {
-                    backgroundColor: theme.palette.grey[900],
+                    backgroundColor: theme.palette.grey[200],
                 },
                 '& > img': {
                     transform: "translateY(-10%) translateX(-10%) scaleX(-1.2) scaleY(1.2)"
@@ -55,7 +55,7 @@ const useStyles = makeStyles(theme => ({
                 height: "400%",
                 paddingLeft: "200%",
                 transition: "background-color 0.2s ease-out",
-                backgroundColor: theme.palette.common.black,
+                backgroundColor: theme.palette.common.white,
                 zIndex: "1",
                 clipPath: "polygon(100% 0, 0% 100%, 100% 100%)"
             }
@@ -131,7 +131,8 @@ const useStyles = makeStyles(theme => ({
         left: "10%",
         textAlign: "right",
         color: theme.palette.primary.main,
-        backdropFilter: "brightness(99.5%) blur(.5px)"
+        backdropFilter: "brightness(99.5%) blur(.5px)",
+        filter: "drop-shadow(0 2px 2px rgba(0, 0, 0, .4))"
     },
     i_subTitle_mobile: {
         position: "absolute",
@@ -139,7 +140,8 @@ const useStyles = makeStyles(theme => ({
         top: "20%",
         left: "6%",
         zIndex: "3",
-        fontSize: "8vw"
+        fontSize: "8vw",
+        filter: "drop-shadow(0 2px 2px rgba(0, 0, 0, .4))"
     },
     i_background: {
         position: "absolute",

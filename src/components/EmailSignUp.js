@@ -5,9 +5,9 @@ import { Divider, Box, makeStyles, TextField, Container, Typography, Button } fr
 // TODO: Form Validation for email, (regex and class state switch?)
 const useStyles = makeStyles((theme) => ({
     email_main: {
-        backgroundColor: theme.palette.common.black,
+        backgroundColor: theme.palette.grey[200],
         padding: "2rem 0rem 2rem 0rem",
-        color: theme.palette.common.white
+        color: theme.palette.common.black
     },
     email_form: {
         padding: "1rem 3rem 1rem 3rem",
@@ -32,11 +32,11 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.common.white
     },
     email_css_label: {
-        color: theme.palette.primary.main,
+        color: theme.palette.common.black,
         
     },
     email_css_focused: {
-        borderColor: `${theme.palette.primary.main} !important`
+        borderColor: `${theme.palette.common.black} !important`
     }
 }));
 

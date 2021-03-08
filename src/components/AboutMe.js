@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 
 const useStyles = makeStyles( theme => ({
     about_container: {
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: theme.palette.grey[200],
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -12,7 +12,7 @@ const useStyles = makeStyles( theme => ({
         '& > span': {
             height: "100%",
             width: "100%",
-            backgroundColor: theme.palette.common.black,
+            backgroundColor: theme.palette.common.white,
             position: "absolute",
             zIndex: "0",
             clipPath: "polygon(0 0, 100% 0, 100% 100%, 50% 100%)"
@@ -24,11 +24,11 @@ const useStyles = makeStyles( theme => ({
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
-        color: theme.palette.common.white,
+        color: theme.palette.common.black,
         zIndex: "1",
         '& > div:first-child': {
             flexBasis: "30%",
-            border: `1px solid ${theme.palette.grey[200]}`,
+            border: `1px solid ${theme.palette.grey[300]}`,
             backgroundColor: theme.palette.grey[100],
             padding: "2rem 1rem"
         },
@@ -64,13 +64,13 @@ export default function AboutMe(properties) {
         <Container id="about_me" disableGutters={true} maxWidth={false} className={about_container}>
             <Box component="span" />
             <Container style={mobileView ? {flexDirection: "column"} : {flexDirection: "row"}} maxWidth="md" disableGutters={true} className={about_main}>
-                <Box style={{width: mobileView ? "40%" : "100%", margin: mobileView ? "1rem auto" : "0", backgroundImage: `url(${process.env.PUBLIC_URL}/img/jackanbara_cutout.png)`, backgroundSize: "cover", minHeight: "200px"} }>
+                <Box style={{width: mobileView ? "200px" : "100%", margin: mobileView ? "1rem auto" : "0", backgroundImage: `url(${process.env.PUBLIC_URL}/img/jackanbara_cutout_cropped.png)`, backgroundSize: mobileView ? "cover" : "contain", backgroundRepeat: "no-repeat", minHeight: "200px"} }>
                     {/* Another photo of jack here, preferably better quality */}
                     
                 </Box>
                 <Box>
                     <Box p={1}>
-                        <Typography style={{textAlign: mobileView ? "center" : "left"}} variant="h4">
+                        <Typography style={{textAlign: mobileView ? "center" : "left", filter: "drop-shadow(0 2px 2px rgba(0, 0, 0, .1))"}} color="primary" variant="h3">
                             Jack Anbara
                         </Typography>
                     </Box>
