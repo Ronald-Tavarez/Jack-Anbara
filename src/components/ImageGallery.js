@@ -112,13 +112,13 @@ export default function ImageGallery(properties) {
             })}
             </Container>
             <Box p={3}>
-                <Button variant="contained" color="primary">
+                {/*<Button variant="contained" color="primary">
                     <Box p={1}>
                         <Typography style={{color: "white", textTransform: "capitalize"}} variant="h5">
                             Search Listed
                         </Typography>
                     </Box>
-                </Button>
+                </Button>*/}
             </Box>
         </Container>
     );
